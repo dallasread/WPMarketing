@@ -1,0 +1,16 @@
+{
+  "name": "wpmarketing",
+  "version": "1.0.0",
+  "description": "=== WP Marketing === Version: 1.0 URI: http://wpmarketing.guru Contributors: dallas22ca Author: Dallas Read Author URI: http://www.DallasRead.com Donate link: Purchase a subscription! Tags: free live chat, live chat, live support, online chat, customer service Requires at least: 3.6 Tested up to: 3.9.1 Stable tag: 1.0.35 License: MIT",
+  "main": "index.js",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "^0.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,14 @@
+.wpmarketing_widget[data-style="box"] {
+	bottom: 0;
+	right: 0;
+	position: fixed;
+
+	&[data-position="left"] {
+		left: 0;
+		right: auto;
+	}
+	
+	&[data-sticky="absolute"] {
+		position: absolute;
+	}
+}

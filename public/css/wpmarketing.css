@@ -1,0 +1,101 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+.wpmarketing_widget {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  line-height: 1; }
+
+.wpmarketing_widget {
+  /* HTML5 display-role reset for older browsers */ }
+  .wpmarketing_widget div, .wpmarketing_widget span, .wpmarketing_widget applet, .wpmarketing_widget object, .wpmarketing_widget iframe,
+  .wpmarketing_widget h1, .wpmarketing_widget h2, .wpmarketing_widget h3, .wpmarketing_widget h4, .wpmarketing_widget h5, .wpmarketing_widget h6, .wpmarketing_widget p, .wpmarketing_widget blockquote, .wpmarketing_widget pre,
+  .wpmarketing_widget a, .wpmarketing_widget abbr, .wpmarketing_widget acronym, .wpmarketing_widget address, .wpmarketing_widget big, .wpmarketing_widget cite, .wpmarketing_widget code,
+  .wpmarketing_widget del, .wpmarketing_widget dfn, .wpmarketing_widget em, .wpmarketing_widget img, .wpmarketing_widget ins, .wpmarketing_widget kbd, .wpmarketing_widget q, .wpmarketing_widget s, .wpmarketing_widget samp,
+  .wpmarketing_widget small, .wpmarketing_widget strike, .wpmarketing_widget strong, .wpmarketing_widget sub, .wpmarketing_widget sup, .wpmarketing_widget tt, .wpmarketing_widget var,
+  .wpmarketing_widget b, .wpmarketing_widget u, .wpmarketing_widget i, .wpmarketing_widget center,
+  .wpmarketing_widget dl, .wpmarketing_widget dt, .wpmarketing_widget dd, .wpmarketing_widget ol, .wpmarketing_widget ul, .wpmarketing_widget li,
+  .wpmarketing_widget fieldset, .wpmarketing_widget form, .wpmarketing_widget label, .wpmarketing_widget legend,
+  .wpmarketing_widget table, .wpmarketing_widget caption, .wpmarketing_widget tbody, .wpmarketing_widget tfoot, .wpmarketing_widget thead, .wpmarketing_widget tr, .wpmarketing_widget th, .wpmarketing_widget td,
+  .wpmarketing_widget article, .wpmarketing_widget aside, .wpmarketing_widget canvas, .wpmarketing_widget details, .wpmarketing_widget embed,
+  .wpmarketing_widget figure, .wpmarketing_widget figcaption, .wpmarketing_widget footer, .wpmarketing_widget header, .wpmarketing_widget hgroup,
+  .wpmarketing_widget menu, .wpmarketing_widget nav, .wpmarketing_widget output, .wpmarketing_widget ruby, .wpmarketing_widget section, .wpmarketing_widget summary,
+  .wpmarketing_widget time, .wpmarketing_widget mark, .wpmarketing_widget audio, .wpmarketing_widget video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline; }
+  .wpmarketing_widget article, .wpmarketing_widget aside, .wpmarketing_widget details, .wpmarketing_widget figcaption, .wpmarketing_widget figure,
+  .wpmarketing_widget footer, .wpmarketing_widget header, .wpmarketing_widget hgroup, .wpmarketing_widget menu, .wpmarketing_widget nav, .wpmarketing_widget section {
+    display: block; }
+  .wpmarketing_widget ol, .wpmarketing_widget ul {
+    list-style: none; }
+  .wpmarketing_widget blockquote, .wpmarketing_widget q {
+    quotes: none; }
+  .wpmarketing_widget blockquote:before, .wpmarketing_widget blockquote:after,
+  .wpmarketing_widget q:before, .wpmarketing_widget q:after {
+    content: '';
+    content: none; }
+  .wpmarketing_widget table {
+    border-collapse: collapse;
+    border-spacing: 0; }
+  .wpmarketing_widget * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif; }
+
+.wpmarketing_widget[data-style="box"] {
+  bottom: 0;
+  right: 0;
+  position: fixed; }
+  .wpmarketing_widget[data-style="box"][data-position="left"] {
+    left: 0;
+    right: auto; }
+  .wpmarketing_widget[data-style="box"][data-sticky="absolute"] {
+    position: absolute; }
+
+.wpmarketing_widget[data-style="bar"] {
+  top: 0;
+  right: 0;
+  left: 0;
+  position: fixed; }
+  .wpmarketing_widget[data-style="bar"][data-position="bottom"] {
+    bottom: 0;
+    top: auto; }
+  .wpmarketing_widget[data-style="bar"][data-sticky="absolute"] {
+    position: absolute; }
+
+.wpmarketing_widget[data-theme="simple"] {
+  background: #eee; }
+  .wpmarketing_widget[data-theme="simple"] h3 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    margin: 0; }
+  .wpmarketing_widget[data-theme="simple"] label {
+    font-size: 15px; }
+  .wpmarketing_widget[data-theme="simple"] input, .wpmarketing_widget[data-theme="simple"] button {
+    padding: 4px;
+    font-size: 15px; }
+  .wpmarketing_widget[data-theme="simple"] button {
+    background: #1259B8;
+    color: #fff;
+    border: 0;
+    padding: 10px;
+    cursor: pointer; }
+
+.wpmarketing_widget[data-style="box"][data-theme="simple"] {
+  width: 300px;
+  padding: 20px; }
+  .wpmarketing_widget[data-style="box"][data-theme="simple"] input, .wpmarketing_widget[data-style="box"][data-theme="simple"] button {
+    width: 100%; }
+  .wpmarketing_widget[data-style="box"][data-theme="simple"] .wpmarketing_field {
+    margin: 10px 0; }

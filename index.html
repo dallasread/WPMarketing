@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="public/js/wpmarketing.min.js"></script>
+		<link rel="stylesheet" href="public/css/wpmarketing.min.css" type="text/css">
+		<style type="text/css" media="screen">
+		body {
+			height: 1000px;
+		}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			this.WPM || (this.WPM = []);
+			WPM.push(["debug", true]);
+			
+			// WPM.push(["widget", {
+			// 	style: "box",
+			// 	action: "subscription",
+			// 	theme: "simple",
+			// 	triggers: ["leaving page, scroll down page, page load, none"],
+			// 	sticky: "fixed",
+			// 	position: "right",
+			// 	title: "Subscribe to our newsletter",
+			// 	description: "We'll send you an email once-a-month with the most ideal things for you.",
+			// 	sync: {
+			// 		mailchimp: true
+			// 	},
+			// 	data: {
+			// 		url: "admin-ajax.php",
+			// 		fields: [
+			// 			{
+			// 				name: "First Name",
+			// 				key: "first_name",
+			// 				type: "text"
+			// 			},
+			// 			{
+			// 				name: "Mobile #",
+			// 				key: "mobile",
+			// 				type: "tel"
+			// 			},
+			// 			{
+			// 				name: "Best Email",
+			// 				key: "email",
+			// 				type: "email"
+			// 			}
+			// 		],
+			// 		button: "Sure, boss &rarr;"
+			// 	}
+			// }]);
+			
+			WPM.push(["widget", {
+				style: "bar",
+				action: "callback",
+				theme: "simple",
+				triggers: ["leaving page, scroll down page, page load, none"],
+				sticky: "fixed",
+				position: "top",
+				title: "Leave us your number",
+				description: "We'll call you as soon as we can with the information you need!",
+				sync: {
+					mailchimp: true
+				},
+				data: {
+					url: "admin-ajax.php",
+					method: "post",
+					fields: [
+						{
+							name: "Mobile #",
+							key: "mobile",
+							type: "tel"
+						}
+					],
+					button: "Sure, boss &rarr;"
+				}
+			}]);
+		</script>
+	</body>
+</html>
