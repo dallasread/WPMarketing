@@ -1,0 +1,15 @@
+.wpmarketing_widget[data-style="dialog"] {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 9999;
+	
+	.wpmarketing_widget_container {
+		width: 100%;
+		max-width: 300px;
+		margin: 0 auto;
+		padding: 20px;
+	}
+}

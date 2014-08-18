@@ -40,8 +40,6 @@ sdfsadf
 
 Here are the next things on the list for WP Marketing:
 
-* 8:30 - Sample Data
-* 9:00 - 12:00 - All JS
 * 1:00 - 1:30 - Activate Sequence
 * 1:30 - 2:00 - Upsell
 * 1:30 - 4:00 - WP Integration

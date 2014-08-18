@@ -12,6 +12,10 @@
 		</style>
 	</head>
 	<body>
+		<div class="not_here"></div>
+		This is text
+		<div class="here"></div>
+		asdf
 		<script type="text/javascript">
 			this.WPM || (this.WPM = []);
 			WPM.push(["debug", true]);
@@ -30,6 +34,7 @@
 			// 	},
 			// 	data: {
 			// 		url: "admin-ajax.php",
+			//		redirect: "http://google.com",
 			// 		fields: [
 			// 			{
 			// 				name: "First Name",
@@ -54,26 +59,44 @@
 			WPM.push(["widget", {
 				style: "bar",
 				action: "callback",
-				theme: "simple",
+				theme: "pike",
 				triggers: ["leaving page, scroll down page, page load, none"],
 				sticky: "fixed",
-				position: "top",
-				title: "Leave us your number",
-				description: "We'll call you as soon as we can with the information you need!",
+				position: "bottom",
+				title: "Leave us your number - we'll call you back!",
 				sync: {
 					mailchimp: true
 				},
+				mobile: {
+					hide: false
+				},
+				tablet: {
+					hide: false
+				},
+				desktop: {
+					hide: false
+				},
 				data: {
 					url: "admin-ajax.php",
-					method: "post",
+					overlay: {
+						clickable: true,
+						escapeable: true
+					},
 					fields: [
 						{
+							name: "Name",
+							placeholder: "Your Name",
+							key: "name",
+							type: "text"
+						},
+						{
 							name: "Mobile #",
+							placeholder: "Phone Number",
 							key: "mobile",
 							type: "tel"
 						}
 					],
-					button: "Sure, boss &rarr;"
+					button: "Call Us! &nbsp;&rarr;"
 				}
 			}]);
 		</script>

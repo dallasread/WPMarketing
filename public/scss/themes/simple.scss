@@ -1,6 +1,10 @@
 .wpmarketing_widget[data-theme="simple"] {
 	background: #eee;
 	
+	* {
+		font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+	}
+	
 	h3 {
 		font-weight: bold;
 		font-size: 24px;
@@ -10,11 +14,13 @@
 	
 	label {
 		font-size: 15px;
+		display: block;
 	}
 	
 	input, button {
-		padding: 4px;
+		padding: 6px;
 		font-size: 15px;
+		border: 1px solid #aaa;
 	}
 	
 	button {
@@ -26,7 +32,7 @@
 	}
 }
 
-.wpmarketing_widget[data-style="box"][data-theme="simple"] {
+.wpmarketing_widget[data-theme="simple"][data-style="box"] {
 	width: 300px;
 	padding: 20px;
 	
@@ -36,5 +42,28 @@
 	
 	.wpmarketing_field {
 		margin: 10px 0;
+	}
+}
+
+.wpmarketing_widget[data-theme="simple"][data-style="bar"] {
+	padding: 10px;
+	
+	h3 {
+		font-size: 15px;
+		font-weight: normal;
+	}
+	
+	button {
+		padding: 7px 15px;
+	}
+}
+
+.wpmarketing_widget[data-theme="simple"][data-style="dialog"] {
+	background: #000;
+	background: rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+	
+	.wpmarketing_widget_container {
+		background: #fff;
 	}
 }

@@ -23,9 +23,11 @@ else
 
 		WPMarketing.addWidget = (data) ->
 			structure = """
-				<div class="wpmarketing_widget" data-style="{{style}}" data-action="{{action}}" data-position="{{position}}" data-theme="{{theme}}" data-sticky="{{sticky}}">
-					<h3>{{ title }}</h3>
-					<h4>{{ description }}</h4>
+				<div class="wpmarketing_widget {{#unless data.overlay.clickable}}wpmarketing_unclickable{{/unless}} {{#unless data.overlay.escapeable}}wpmarketing_unescapeable{{/unless}} {{#if mobile.hide}}wpmarketing_mobile_hide{{/if}} {{#if tablet.hide}}wpmarketing_tablet_hide{{/if}} {{#if desktop.hide}}wpmarketing_desktop_hide{{/if}}" data-style="{{style}}" data-action="{{action}}" data-position="{{position}}" data-theme="{{theme}}" data-sticky="{{sticky}}">
+					<div class="wpmarketing_widget_container">
+						<h3>{{ title }}</h3>
+						<h4>{{ description }}</h4>
+						<div class="wpmarketing_content">
 			"""
 			
 			form_actions = ["download", "subscription", "callback", "appointment", "contact"]
@@ -35,9 +37,8 @@ else
 					<form action="{{data.url}}" method="{{data.method}}">
 						{{#each data.fields}}
 							<div class="wpmarketing_field">
-								<label>{{name}}<br>
-									<input type="{{type}}" name="{{key}}" placeholder="{{name}}">
-								</label>
+								<label for="{{key}}">{{name}}</label>
+								<input type="{{type}}" name="{{key}}" placeholder="{{placeholder}}">
 							</div>
 						{{/each}}
 					
@@ -50,12 +51,20 @@ else
 				"""
 			
 			structure += """
+					</div>
 				</div>
 			"""
 				
 			template = Handlebars.compile structure
 			html = template(data)
-			$(html).appendTo "body"
+			
+			if data.style == "inline" && typeof data.container != "undefined"
+				$(data.container).html html
+			else
+				$(html).appendTo "body"
+			
+			# if data.style == "bar"
+			# 	$("body").css "margin-top", $(".wpmarketing_widget:last").outerHeight()
 
 		WPMarketing.parseEvents = ->
 			_i = 0
@@ -75,10 +84,14 @@ else
 					WPMarketing.debug = event[1]
 				_i++
 			WPMarketing.detectPushes()
-		
-		$(document).on "click", ".field", ->
-			# alert "jhi"
 
 		WPMarketing.parseEvents()
+		
+		$(document).on "click", ".wpmarketing_widget[data-style='dialog']:not(.wpmarketing_unclickable)", (e) ->
+			$(this).hide() if $(e.target).hasClass("wpmarketing_widget")
+		
+		$(document).keyup (e) ->
+			code = ((if e.keyCode then e.keyCode else e.which))
+			$(".wpmarketing_widget[data-style='dialog']:not(.wpmarketing_unescapeable)").hide() if code == 27
 	
 	) jQuery

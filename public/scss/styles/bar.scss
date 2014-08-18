@@ -3,6 +3,7 @@
 	right: 0;
 	left: 0;
 	position: fixed;
+	text-align: center;
 
 	&[data-position="bottom"] {
 		bottom: 0;
@@ -11,5 +12,23 @@
 	
 	&[data-sticky="absolute"] {
 		position: absolute;
+	}
+	
+	.wpmarketing_widget_container {
+		h3 {
+			padding-right: 20px;
+		}
+	
+		label {
+			display: none;
+		}
+		
+		input {
+			width: 10em;
+		}
+	
+		* {
+			display: inline-block;
+		}
 	}
 }

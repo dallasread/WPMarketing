@@ -1,0 +1,17 @@
+@media screen and (max-width: 480px) {
+	.wpmarketing_mobile_hide {
+		display: none !important;
+	}
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+	.wpmarketing_tablet_hide {
+		display: none !important;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.wpmarketing_desktop_hide {
+		display: none !important;
+	}
+}

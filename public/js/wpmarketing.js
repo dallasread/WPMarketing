@@ -27,15 +27,19 @@
       };
       WPMarketing.addWidget = function(data) {
         var form_actions, html, structure, template;
-        structure = "<div class=\"wpmarketing_widget\" data-style=\"{{style}}\" data-action=\"{{action}}\" data-position=\"{{position}}\" data-theme=\"{{theme}}\" data-sticky=\"{{sticky}}\">\n	<h3>{{ title }}</h3>\n	<h4>{{ description }}</h4>";
+        structure = "<div class=\"wpmarketing_widget {{#unless data.overlay.clickable}}wpmarketing_unclickable{{/unless}} {{#unless data.overlay.escapeable}}wpmarketing_unescapeable{{/unless}} {{#if mobile.hide}}wpmarketing_mobile_hide{{/if}} {{#if tablet.hide}}wpmarketing_tablet_hide{{/if}} {{#if desktop.hide}}wpmarketing_desktop_hide{{/if}}\" data-style=\"{{style}}\" data-action=\"{{action}}\" data-position=\"{{position}}\" data-theme=\"{{theme}}\" data-sticky=\"{{sticky}}\">\n	<div class=\"wpmarketing_widget_container\">\n		<h3>{{ title }}</h3>\n		<h4>{{ description }}</h4>\n		<div class=\"wpmarketing_content\">";
         form_actions = ["download", "subscription", "callback", "appointment", "contact"];
         if (jQuery.inArray(data.action, form_actions) !== -1) {
-          structure += "<form action=\"{{data.url}}\" method=\"{{data.method}}\">\n	{{#each data.fields}}\n		<div class=\"wpmarketing_field\">\n			<label>{{name}}<br>\n				<input type=\"{{type}}\" name=\"{{key}}\" placeholder=\"{{name}}\">\n			</label>\n		</div>\n	{{/each}}\n\n	<div class=\"wpmarketing_action_field\">\n		<button type=\"submit\">\n			{{{ data.button }}}\n		</button>\n	</div>\n</form>";
+          structure += "<form action=\"{{data.url}}\" method=\"{{data.method}}\">\n	{{#each data.fields}}\n		<div class=\"wpmarketing_field\">\n			<label for=\"{{key}}\">{{name}}</label>\n			<input type=\"{{type}}\" name=\"{{key}}\" placeholder=\"{{placeholder}}\">\n		</div>\n	{{/each}}\n\n	<div class=\"wpmarketing_action_field\">\n		<button type=\"submit\">\n			{{{ data.button }}}\n		</button>\n	</div>\n</form>";
         }
-        structure += "</div>";
+        structure += "	</div>\n</div>";
         template = Handlebars.compile(structure);
         html = template(data);
-        return $(html).appendTo("body");
+        if (data.style === "inline" && typeof data.container !== "undefined") {
+          return $(data.container).html(html);
+        } else {
+          return $(html).appendTo("body");
+        }
       };
       WPMarketing.parseEvents = function() {
         var event, _i, _len;
@@ -58,8 +62,19 @@
         }
         return WPMarketing.detectPushes();
       };
-      $(document).on("click", ".field", function() {});
-      return WPMarketing.parseEvents();
+      WPMarketing.parseEvents();
+      $(document).on("click", ".wpmarketing_widget[data-style='dialog']:not(.wpmarketing_unclickable)", function(e) {
+        if ($(e.target).hasClass("wpmarketing_widget")) {
+          return $(this).hide();
+        }
+      });
+      return $(document).keyup(function(e) {
+        var code;
+        code = (e.keyCode ? e.keyCode : e.which);
+        if (code === 27) {
+          return $(".wpmarketing_widget[data-style='dialog']:not(.wpmarketing_unescapeable)").hide();
+        }
+      });
     })(jQuery);
   }
 
